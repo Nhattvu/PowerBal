@@ -1,0 +1,107 @@
+<style>
+* {
+    # font-family: monospace;
+}
+
+.slot-number {
+    font-size: 100px;
+}
+
+.message {
+    text-align: center;
+    display: none;
+    font-size: xx-large;
+    color: red;
+}
+
+.center {
+    text-align: center;
+}
+
+.lever {
+    margin-top: 5px;
+}
+
+table.center {
+    margin-left: auto;
+    margin-right: auto;
+}
+</style>
+
+<div class="jumbotron jumbotron-fluid">
+    <div class="container mt-1 mb-1 center">
+        <br>
+        <h1>Spin to Win!</h1>
+        <br>
+    </div>
+    <div class="center lever">
+        <button type="button" class="btn btn-primary" onclick="spin()">Spin</button>
+    </div>
+    <table class="center">
+        <tbody>
+            <tr>
+                <td>
+                    <span id="item1" class="slot-number">-</span>
+                </td>
+                <td>
+                    <span id="item2" class="slot-number">-</span>
+                </td>
+                <td>
+                    <span id="item3" class="slot-number">-</span>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <div id="message" class="center message">
+        You Won!
+    </div>
+    <audio id="win">
+        <source src="http://localhost:3000/assets/casinowin.wav" type="audio/mpeg">
+    </audio>
+</div>
+
+<script>
+    function getRandomNumber() {
+        return Math.floor(Math.random() * 2) + 1;
+    }
+
+    function getElement(id) {
+        return document.getElementById(id);
+    }
+
+    function spin() {
+        const item1 = getElement('item1');
+        const item2 = getElement('item2');
+        const item3 = getElement('item3');
+
+        const num1 = getRandomNumber();
+        const num2 = getRandomNumber();
+        const num3 = getRandomNumber();
+
+        item1.innerHTML = `${num1}`;
+        item2.innerHTML = `${num2}`;
+        item3.innerHTML = `${num3}`;
+
+        if (num1 === num2 && num1 === num3) {
+            playWin();
+            showMessage();
+        } else {
+            hideMessage();
+        }
+    }
+
+    function playWin() {
+        const boing = document.getElementById("win");
+        win.play();
+    }
+
+    function showMessage() {
+        const msg = document.getElementById("message");
+        msg.style.display = "block";
+    }
+
+    function hideMessage() {
+        const msg = document.getElementById("message");
+        msg.style.display = "none";
+    }
+</script>
