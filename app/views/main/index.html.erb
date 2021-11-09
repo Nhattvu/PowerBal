@@ -28,6 +28,15 @@ table.center {
 }
 </style>
 
+<!-- Ruby display/header -->
+
+<div class ="center">
+    <h1>Rubies</h1>
+    <span id="currentRubys">-</span>
+</div>
+
+<!-- Slot Game -->
+
 <div class="jumbotron jumbotron-fluid">
     <div class="container mt-1 mb-1 center">
         <br>
@@ -60,7 +69,74 @@ table.center {
     </audio>
 </div>
 
+<!-- Between Game -->
+<!-- i know its ugly, gonna have to style it soon -->
+<div class="jumbotron jumbotron-fluid">
+    <div class="container mt-1 mb-1 center">
+        <br>
+        <h1>Place your bet that the number in the middle will be between the two numbers. Range is 1-100</h1>
+        <br>
+    </div>
+    <div class="input-group mb-3">
+        <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)" id="betweenBet">
+    </div>
+    <div class="center lever">
+        <button type="button" class="btn btn-primary" onclick="spinBetween()" id="betweenSpin">Spin</button>
+    </div>
+    <table>
+        <tbody>
+            <tr>
+                <div style = "text-align:left">
+                    <td>
+                        <span id="betweenItem1" class="slot-number">-</span>
+                    </td>
+                    <td>
+                        <span id="betweenItem2" class="slot-number">-</span>
+                    </td>
+                    <td>
+                        <span id="betweenItem3" class="slot-number">-</span>
+                    </td>
+                </div>
+                <div style = "text-align:center">
+                    <td>
+                        <span id="betweenItem4" class="slot-number">-</span>
+                    </td>
+                    <td>
+                        <span id="betweenItem5" class="slot-number">-</span>
+                    </td>
+                    <td>
+                        <span id="betweenItem6" class="slot-number">-</span>
+                    </td>
+                </div>
+                <div style = "text-align:right">
+                    <td>
+                        <span id="betweenItem7" class="slot-number">1</span>
+                    </td>
+                    <td>
+                        <span id="betweenItem8" class="slot-number">0</span>
+                    </td>
+                    <td>
+                        <span id="betweenItem9" class="slot-number">0</span>
+                    </td>
+                </div>
+            </tr>
+        </tbody>
+    </table>
+    <div id="message" class="center message">
+        You Won!
+    </div>
+    <audio id="win">
+        <source src="http://localhost:3000/assets/casinowin.wav" type="audio/mpeg">
+    </audio>
+</div>
+
+
 <script>
+let currentRubys = 100;
+
+//whenever we wanna open the 'between' game we'll call this, right now it just gets called on start
+beginBetweenGame();
+
     function getRandomNumber() {
         return Math.floor(Math.random() * 2) + 1;
     }
@@ -88,6 +164,62 @@ table.center {
         } else {
             hideMessage();
         }
+    }
+
+    function beginBetweenGame(){
+        const item1 = getElement('betweenItem1');
+        const item2 = getElement('betweenItem2');
+        const item3 = getElement('betweenItem3');
+
+        const leftNum = Math.floor(Math.random() * 100);
+        let leftNumString = leftNum.toString();
+
+        item1.innerHTML = `${leftNumString.charAt(0)}`;
+        item2.innerHTML = `${leftNumString.charAt(1)}`;
+        item3.innerHTML = `${leftNumString.charAt(2)}`;
+
+        console.log("Left Number is " + leftNumString);
+    }
+
+    function spinBetween(){
+        const item1 = getElement('betweenItem1');
+        const item2 = getElement('betweenItem2');
+        const item3 = getElement('betweenItem3');
+        const item4 = getElement('betweenItem4');
+        const item5 = getElement('betweenItem5');
+        const item6 = getElement('betweenItem6');
+        const bet = getElement('betweenBet');
+
+        const leftNum = parseInt(item1.innerHTML + item2.innerHTML + item3.innerHTML);
+        
+        const middleNum = Math.floor(Math.random() * 100);
+        let middleNumString = middleNum.toString();
+
+        item4.innerHTML = `${middleNumString.charAt(0)}`;
+        item5.innerHTML = `${middleNumString.charAt(1)}`;
+        item6.innerHTML = `${middleNumString.charAt(2)}`;
+
+        console.log("Middle Number is " + middleNumString);
+
+        var win = middleNum >= leftNum;
+        if(win){
+            item4.style.color = item5.style.color = item6.style.color = 'green';
+            updateRubys(parseInt(bet.value));
+            playWin(); 
+            console.log("Between game won with bet of " + bet.value);
+        }else{
+            item4.style.color = item5.style.color = item6.style.color = 'red';
+            updateRubys(-parseInt(bet.value));
+            console.log("Between game lost with bet of " + bet.value);
+        }
+        getElement('betweenSpin').disabled = true;
+        //after like 3 seconds restart the game
+    }
+
+    function updateRubys(amt){
+        currentRubys += amt;
+        console.log("Ruby count updated to " + currentRubys);
+        getElement('currentRubys').innerHTML = `${currentRubys}`;
     }
 
     function playWin() {
