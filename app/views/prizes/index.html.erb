@@ -1,2 +1,56 @@
+<style>
+.message {
+    text-align: center;
+    display: none;
+    font-size: xx-large;
+    color: red;
+}
+
+.center {
+    text-align: center;
+}
+</style>
+
+
 <h1>Prize Page</h1>
 <p>Redeem your gems here!</p>
+
+<p>Click on the image to redeem your Rubies!</p>
+<p>If the image is greyed out, you do not have enough Rubies.<p>
+
+<div id="prize" class="center message">
+    <a href="http://localhost:3000/assets/ruby.png" download>
+        <img src="http://localhost:3000/assets/ruby.png" alt="Red Ruby" width="200" height="200">
+    </a>
+</div>
+
+<div id="noprize" class="center message">
+    <img src="http://localhost:3000/assets/rubyprize.png" alt="Red Ruby" width="200" height="200">
+</div>
+
+<script>
+    checkRubies();
+
+    function checkRubies() {
+        const rubies = 150;
+        if (rubies < 100) {
+            hidePrize();
+        }
+        if (rubies >= 100) {
+            showPrize();
+        }
+    }
+    function showPrize() {
+        const msg = document.getElementById("prize");
+        msg.style.display = "block";
+        const msg2 = document.getElementById("noprize");
+        msg2.style.display = "none";
+    }
+
+    function hidePrize() {
+        const msg = document.getElementById("prize");
+        msg.style.display = "none";
+        const msg2 = document.getElementById("noprize");
+        msg2.style.display = "block";
+    }
+</script>
