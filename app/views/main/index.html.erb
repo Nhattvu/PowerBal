@@ -18,6 +18,13 @@
     text-align: center;
 }
 
+.bet-input {
+    margin-left: auto;
+    margin-right: auto;
+    width: 10%;
+    border-radius: 5px;
+}
+
 .lever {
     margin-top: 5px;
 }
@@ -26,6 +33,7 @@ table.center {
     margin-left: auto;
     margin-right: auto;
 }
+
 </style>
 
 <!-- Ruby display/header -->
@@ -40,11 +48,8 @@ table.center {
 <div class="jumbotron jumbotron-fluid">
     <div class="container mt-1 mb-1 center">
         <br>
-        <h1>Spin to Win!</h1>
+          <h1>Spin to Win!</h1>
         <br>
-    </div>
-    <div class="center lever">
-        <button type="button" class="btn btn-primary" onclick="spin()">Spin</button>
     </div>
     <table class="center">
         <tbody>
@@ -61,6 +66,9 @@ table.center {
             </tr>
         </tbody>
     </table>
+    <div class="center lever">
+        <button type="button" class="btn btn-primary" onclick="spin()">Spin!</button>
+    </div>
     <div id="message" class="center message">
         You Won!
     </div>
@@ -74,16 +82,10 @@ table.center {
 <div class="jumbotron jumbotron-fluid">
     <div class="container mt-1 mb-1 center">
         <br>
-        <h1>Place your bet that the number in the middle will be between the two numbers. Range is 1-100</h1>
+          <h1>Place your bet that the number in the middle will be between the two numbers. Range is 1-100</h1>
         <br>
-    </div>
-    <div class="input-group mb-3">
-        <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)" id="betweenBet">
-    </div>
-    <div class="center lever">
-        <button type="button" class="btn btn-primary" onclick="spinBetween()" id="betweenSpin">Spin</button>
-    </div>
-    <table>
+    </div>   
+    <table style = "margin-left:auto;margin-right:auto;text-align:center">
         <tbody class ="center">
             <tr>
                 <div style = "text-align:left">
@@ -119,8 +121,14 @@ table.center {
             </tr>
         </tbody>
     </table>
+    <div class="input-group mb-3">
+        <input type="text" class="bet-input" aria-label="Amount (to the nearest dollar)" id="betweenBet">
+    </div>
+    <div class="center lever">
+        <button type="button" class="btn btn-primary" onclick="spinBetween()" id="betweenSpin">Place Bet!</button>
+    </div>
     <div id="betweenWinMessage" class="center message">
-        You Won!
+        You won!
     </div>
     <audio id="win">
         <source src="http://localhost:3000/assets/casinowin.wav" type="audio/mpeg">
@@ -132,16 +140,10 @@ table.center {
 <div class="jumbotron jumbotron-fluid">
     <div class="container mt-1 mb-1 center">
         <br>
-        <h1>Place your bet, your return will be multiplied by the current multiplier value when you hit stop. Beware, if the bomb goes off before you hit stop the multiplier will be negative!</h1>
+          <h1>Place your bet, your return will be multiplied by the current multiplier value when you hit stop.<br/> Beware, if the bomb goes off before you hit stop the multiplier will be negative!</h1>
         <br>
     </div>
-    <div class="input-group mb-3">
-        <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)" id="defuseBet">
-    </div>
-    <div class="center lever">
-        <button type="button" class="btn btn-primary" onclick="spinDefuse()" id="defuseSpin">-</button>
-    </div>
-    <table>
+    <table style = "margin-left:auto;margin-right:auto;text-align:center">
         <tbody class ="center">
             <tr>
                 <div style = "text-align:left">
@@ -152,6 +154,12 @@ table.center {
             </tr>
         </tbody>
     </table>
+    <div class="input-group mb-3">
+        <input type="text" class="bet-input" aria-label="Amount (to the nearest dollar)" id="defuseBet">
+    </div>
+    <div class="center lever">
+        <button type="button" class="btn btn-primary" onclick="spinDefuse()" id="defuseSpin">-</button>
+    </div>
     <div id="defuseWinMessage" class="center message">
         You Won!
     </div>
@@ -220,7 +228,7 @@ setupDefuseGame();
         item1.innerHTML = `${leftNumString.charAt(0)}`;
         item2.innerHTML = `${leftNumString.charAt(1)}`;
         item3.innerHTML = `${leftNumString.charAt(2)}`;
-        item4.innerHTML = item5.innerHTML = "_";
+        item4.innerHTML = item5.innerHTML = "-";
         item4.style.color = item5.style.color = 'black';
         getElement('betweenSpin').disabled = false;
         const msg = document.getElementById("betweenWinMessage");
@@ -252,15 +260,15 @@ setupDefuseGame();
             var win = middleNum >= leftNum;
             if(win){
                 item4.style.color = item5.style.color = 'green';
-                updateRubys(parseInt(bet.value));
                 playWin();
                 const msg = document.getElementById("betweenWinMessage");
                 msg.style.display = "block"; 
                 console.log("Between game won with bet of " + bet.value);
+                updateRubys(parseInt(bet.value));
             }else{
                 item4.style.color = item5.style.color = 'red';
-                updateRubys(-parseInt(bet.value));
                 console.log("Between game lost with bet of " + bet.value);
+                updateRubys(-parseInt(bet.value));
             }
             getElement('betweenSpin').disabled = true;
             setTimeout(function(){
@@ -362,7 +370,8 @@ setupDefuseGame();
 
     function playWin() {
         const boing = document.getElementById("win");
-        win.play();
+       //NOT A FUNCTION
+       // win.play();
     }
 
     function showMessage() {
