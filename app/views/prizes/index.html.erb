@@ -19,7 +19,7 @@
 <p>If the image is greyed out, you do not have enough Rubies.<p>
 
 <div id="prize" class="center message">
-    <a href="http://localhost:3000/assets/ruby.png" download>
+    <a href="http://localhost:3000/assets/ruby.png" download onclick="redeemRubies()">
         <img src="http://localhost:3000/assets/ruby.png" alt="Red Ruby" width="200" height="200">
     </a>
 </div>
@@ -29,15 +29,14 @@
 </div>
 
 <script>
-    alert(parseInt(window.localStorage.getItem("rubys")));
+    let currentRubies = parseInt(window.localStorage.getItem("rubies"));
     checkRubies();
 
     function checkRubies() {
-        const rubies = 150;
-        if (rubies < 100) {
+        if (currentRubies < 100) {
             hidePrize();
         }
-        if (rubies >= 100) {
+        if (currentRubies >= 100) {
             showPrize();
         }
     }
@@ -54,4 +53,11 @@
         const msg2 = document.getElementById("noprize");
         msg2.style.display = "block";
     }
+
+    function redeemRubies () {
+        currentRubies -= 100;
+        window.localStorage.setItem("rubies",currentRubies);
+        alert(currentRubies);
+    }
+
 </script>

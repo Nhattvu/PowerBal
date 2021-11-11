@@ -40,7 +40,7 @@ table.center {
 
 <div class ="center">
     <h1>Rubies</h1>
-    <span id="currentRubys">-</span>
+    <span id="currentRubies">-</span>
 </div>
 
 <!-- Slot Game -->
@@ -170,9 +170,9 @@ table.center {
 
 
 <script>
-let currentRubys = 0;
+let currentRubies = 0;
 let playingDefuse = false;
-updateRubys(100);
+updateRubies(500);
 //whenever we wanna open the 'between' game we'll call this, right now it just gets called on start
 beginBetweenGame();
 //Whenever we wanna open the 'defuse' game we'll call this, right now it just gets called on start
@@ -188,7 +188,7 @@ setupDefuseGame();
 
     //slot machine
     function spin() {
-        if(currentRubys >= 50){
+        if(currentRubies >= 50){
             const item1 = getElement('item1');
             const item2 = getElement('item2');
             const item3 = getElement('item3');
@@ -204,10 +204,10 @@ setupDefuseGame();
             if (num1 === num2 && num1 === num3) {
                 playWin();
                 showMessage();
-                updateRubys(350);
+                updateRubies(350);
             } else {
                 hideMessage();
-                updateRubys(-50);
+                updateRubies(-50);
             }
         }else{
             alert("Not enough rubies, this game requires at least 50 rubies");
@@ -246,7 +246,7 @@ setupDefuseGame();
         const item5 = getElement('betweenItem5');
         const bet = getElement('betweenBet');
 
-        if(parseInt(bet.value) <= currentRubys && currentRubys > 0 && parseInt(bet.value) > 0){
+        if(parseInt(bet.value) <= currentRubies && currentRubies > 0 && parseInt(bet.value) > 0){
 
             const leftNum = parseInt(item1.innerHTML + item2.innerHTML + item3.innerHTML);
             
@@ -265,11 +265,11 @@ setupDefuseGame();
                 const msg = document.getElementById("betweenWinMessage");
                 msg.style.display = "block"; 
                 console.log("Between game won with bet of " + bet.value);
-                updateRubys(parseInt(bet.value));
+                updateRubies(parseInt(bet.value));
             }else{
                 item4.style.color = item5.style.color = 'red';
                 console.log("Between game lost with bet of " + bet.value);
-                updateRubys(-parseInt(bet.value));
+                updateRubies(-parseInt(bet.value));
             }
             getElement('betweenSpin').disabled = true;
             setTimeout(function(){
@@ -298,7 +298,7 @@ setupDefuseGame();
         const bet = getElement('defuseBet');
 
         if(spin.innerHTML == "Start"){
-            if(parseInt(bet.value) <= currentRubys && currentRubys > 0 && parseInt(bet.value) > 0){
+            if(parseInt(bet.value) <= currentRubies && currentRubies > 0 && parseInt(bet.value) > 0){
                 playingDefuse = true;
                 spin.innerHTML = "Stop";
                 startDefuseGame();
@@ -338,7 +338,7 @@ setupDefuseGame();
                     item1.style.color = 'red';
                     const msg = document.getElementById("defuseWinMessage");
                     msg.style.display = "none";
-                    updateRubys(-parseInt(bet.value) * mult);
+                    updateRubies(-parseInt(bet.value) * mult);
                     setTimeout(function(){
                         setupDefuseGame();
                     }, 4000);
@@ -353,21 +353,21 @@ setupDefuseGame();
         const msg = document.getElementById("defuseWinMessage");
         msg.style.display = "block";
         playWin();
-        updateRubys(parseInt(bet.value) * mult);
+        updateRubies(parseInt(bet.value) * mult);
         setTimeout(function(){
             setupDefuseGame();
         },4000);
     }
 
-    function updateRubys(amt){
-        currentRubys += amt;
-        console.log("Ruby count updated to " + currentRubys);
-        if(currentRubys <= 0){
-            currentRubys = 0;
+    function updateRubies(amt){
+        currentRubies += amt;
+        console.log("Ruby count updated to " + currentRubies);
+        if(currentRubies <= 0){
+            currentRubies = 0;
             alert("OH NO! ....... Your Rubies! ...... Their Gone! \nRefresh the page to start over :(");
         }
-        getElement('currentRubys').innerHTML = `${currentRubys}`;
-        window.localStorage.setItem("rubys",currentRubys);
+        getElement('currentRubies').innerHTML = `${currentRubies}`;
+        window.localStorage.setItem("rubies",currentRubies);
     }
 
     function playWin() {
