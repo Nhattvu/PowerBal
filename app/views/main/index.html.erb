@@ -175,6 +175,7 @@ let playingDefuse = false;
 updateRubys(100);
 //whenever we wanna open the 'between' game we'll call this, right now it just gets called on start
 beginBetweenGame();
+//Whenever we wanna open the 'defuse' game we'll call this, right now it just gets called on start
 setupDefuseGame();
 
     function getRandomNumber() {
@@ -366,6 +367,7 @@ setupDefuseGame();
             alert("OH NO! ....... Your Rubies! ...... Their Gone! \nRefresh the page to start over :(");
         }
         getElement('currentRubys').innerHTML = `${currentRubys}`;
+        window.localStorage.setItem("rubys",currentRubys);
     }
 
     function playWin() {
