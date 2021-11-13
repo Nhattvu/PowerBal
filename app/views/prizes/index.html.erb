@@ -9,55 +9,372 @@
 .center {
     text-align: center;
 }
+
+.rubyCount {
+    text-align: center;
+    text-size: 200px;
+}
+
+.rcimg {
+    margin-top: -10px;
+}
+
+.help {
+    text-align: center;
+    text-size: 5px;
+}
+
+.price {
+    text-align: center;
+    color: DarkRed;
+}
+
+.faces {
+    padding: 10px;
+    margin-top: 5px;
+}
+
+.txt {
+    color: white;
+    text-align: center;
+}
+
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.5);
+    transition: 0.3s;
+    border-radius: 5px;
+    background-color: DarkOliveGreen;
+}
+
+.card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.5);
+    background-color: DarkGreen;
+}
 </style>
 
+<br />
+<h1 class="rubyCount"><span id="count"></span> <img class="rcimg" src="http://localhost:3000/assets/ruby.png" alt="Red Ruby" width="40" height="40" style="vertical-align:middle"></h1>
 
-<h1>Prize Page</h1>
-<p>Redeem your gems here!</p>
+<button onClick="window.location.reload();">Refresh Page</button>
 
-<p>Click on the image to redeem your Rubies!</p>
-<p>If the image is greyed out, you do not have enough Rubies.<p>
+<p class="help">Click on the image to redeem your Rubies!<br />If the image is greyed out, you do not have enough Rubies.</p>
 
-<div id="prize" class="center message">
-    <a href="http://localhost:3000/assets/ruby.png" download onclick="redeemRubies()">
-        <img src="http://localhost:3000/assets/ruby.png" alt="Red Ruby" width="200" height="200">
-    </a>
+
+<div id="prize1" class="album py-5 bg-light">
+  <div class="album py-5">
+    <div class="container">
+      <div>
+        <h2 class="price">500 Rubies!</h2>
+      </div>
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-2 g-3">
+        <div class="col">
+          <div class="card">
+            <div class="card-body">
+              <p class="card-text txt">Brandon Ardoin</p>
+            </div>
+            <div class="faces ms-auto me-auto">
+                <a href="http://localhost:3000/assets/ruby.png" download onclick="redeemRubies(500)">
+                    <img src="http://localhost:3000/assets/ruby.png" alt="Red Ruby" width="200" height="200">
+                </a>
+            </div>
+            <div class="card-body">
+              <p class="card-text txt"> </p>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card">
+            <div class="card-body">
+              <p class="card-text txt">Brandon Ardoin</p>
+            </div>
+            <div class="faces ms-auto me-auto">
+                <a href="http://localhost:3000/assets/ruby.png" download onclick="redeemRubies(500)">
+                    <img src="http://localhost:3000/assets/ruby.png" alt="Red Ruby" width="200" height="200">
+                </a>
+            </div>
+            <div class="card-body">
+              <p class="card-text txt"> </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 
-<div id="noprize" class="center message">
-    <img src="http://localhost:3000/assets/rubyprize.png" alt="Red Ruby" width="200" height="200">
+<div id="noprize1" class="album py-5 bg-light">
+  <div class="album py-5">
+    <div class="container">
+      <div>
+        <h2 class="price">500 Rubies!</h2>
+      </div>
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-2 g-3">
+        <div class="col">
+          <div class="card">
+            <div class="card-body">
+              <p class="card-text txt">Brandon Ardoin</p>
+            </div>
+            <div class="faces ms-auto me-auto">
+                <img src="http://localhost:3000/assets/rubyprize.png" alt="Black Ruby" width="200" height="200">
+            </div>
+            <div class="card-body">
+              <p class="card-text txt"> </p>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card">
+            <div class="card-body">
+              <p class="card-text txt">Brandon Ardoin</p>
+            </div>
+            <div class="faces ms-auto me-auto">
+                <img src="http://localhost:3000/assets/rubyprize.png" alt="Black Ruby" width="200" height="200">
+            </div>
+            <div class="card-body">
+              <p class="card-text txt"> </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="prize2" class="album py-5 bg-light">
+  <div class="album py-5">
+    <div class="container">
+      <div>
+        <h2 class="price">1000 Rubies!</h2>
+      </div>
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-2 g-3">
+        <div class="col">
+          <div class="card">
+            <div class="card-body">
+              <p class="card-text txt">Brandon Ardoin</p>
+            </div>
+            <div class="faces ms-auto me-auto">
+                <a href="http://localhost:3000/assets/ruby.png" download onclick="redeemRubies(1000)">
+                    <img src="http://localhost:3000/assets/ruby.png" alt="Red Ruby" width="200" height="200">
+                </a>
+            </div>
+            <div class="card-body">
+              <p class="card-text txt"> </p>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card">
+            <div class="card-body">
+              <p class="card-text txt">Brandon Ardoin</p>
+            </div>
+            <div class="faces ms-auto me-auto">
+                <a href="http://localhost:3000/assets/ruby.png" download onclick="redeemRubies(1000)">
+                    <img src="http://localhost:3000/assets/ruby.png" alt="Red Ruby" width="200" height="200">
+                </a>
+            </div>
+            <div class="card-body">
+              <p class="card-text txt"> </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="noprize2" class="album py-5 bg-light">
+  <div class="album py-5">
+    <div class="container">
+      <div>
+        <h2 class="price">1000 Rubies!</h2>
+      </div>
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-2 g-3">
+        <div class="col">
+          <div class="card">
+            <div class="card-body">
+              <p class="card-text txt">Brandon Ardoin</p>
+            </div>
+            <div class="faces ms-auto me-auto">
+                <img src="http://localhost:3000/assets/rubyprize.png" alt="Black Ruby" width="200" height="200">
+            </div>
+            <div class="card-body">
+              <p class="card-text txt"> </p>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card">
+            <div class="card-body">
+              <p class="card-text txt">Brandon Ardoin</p>
+            </div>
+            <div class="faces ms-auto me-auto">
+                <img src="http://localhost:3000/assets/rubyprize.png" alt="Black Ruby" width="200" height="200">
+            </div>
+            <div class="card-body">
+              <p class="card-text txt"> </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="prize3" class="album py-5 bg-light">
+  <div class="album py-5">
+    <div class="container">
+      <div>
+        <h2 class="price">1500 Rubies!</h2>
+      </div>
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-2 g-3">
+        <div class="col">
+          <div class="card">
+            <div class="card-body">
+              <p class="card-text txt">Brandon Ardoin</p>
+            </div>
+            <div class="faces ms-auto me-auto">
+                <a href="http://localhost:3000/assets/ruby.png" download onclick="redeemRubies(1500)">
+                    <img src="http://localhost:3000/assets/ruby.png" alt="Red Ruby" width="200" height="200">
+                </a>
+            </div>
+            <div class="card-body">
+              <p class="card-text txt"> </p>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card">
+            <div class="card-body">
+              <p class="card-text txt">Brandon Ardoin</p>
+            </div>
+            <div class="faces ms-auto me-auto">
+                <a href="http://localhost:3000/assets/ruby.png" download onclick="redeemRubies(1500)">
+                    <img src="http://localhost:3000/assets/ruby.png" alt="Red Ruby" width="200" height="200">
+                </a>
+            </div>
+            <div class="card-body">
+              <p class="card-text txt"> </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="noprize3" class="album py-5 bg-light">
+  <div class="album py-5">
+    <div class="container">
+      <div>
+        <h2 class="price">1500 Rubies!</h2>
+      </div>
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-2 g-3">
+        <div class="col">
+          <div class="card">
+            <div class="card-body">
+              <p class="card-text txt">Brandon Ardoin</p>
+            </div>
+            <div class="faces ms-auto me-auto">
+                <img src="http://localhost:3000/assets/rubyprize.png" alt="Black Ruby" width="200" height="200">
+            </div>
+            <div class="card-body">
+              <p class="card-text txt"> </p>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card">
+            <div class="card-body">
+              <p class="card-text txt">Brandon Ardoin</p>
+            </div>
+            <div class="faces ms-auto me-auto">
+                <img src="http://localhost:3000/assets/rubyprize.png" alt="Black Ruby" width="200" height="200">
+            </div>
+            <div class="card-body">
+              <p class="card-text txt"> </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 
 <script>
     let currentRubies = parseInt(window.localStorage.getItem("rubies"));
+    document.getElementById("count").innerHTML = currentRubies;
     checkRubies();
 
     function checkRubies() {
-        if (currentRubies < 100) {
-            hidePrize();
+        if (currentRubies < 500) {
+            hidePrize1();
+            hidePrize2();
+            hidePrize3();
         }
-        if (currentRubies >= 100) {
-            showPrize();
+        if (currentRubies >= 500 && currentRubies < 1000) {
+            showPrize1();
+            hidePrize2();
+            hidePrize3();
+        }
+        if (currentRubies >= 1000 && currentRubies < 1500) {
+            showPrize1();
+            showPrize2();
+            hidePrize3();
+        }
+        if (currentRubies >= 1500) {
+            showPrize1();
+            showPrize2();
+            showPrize3();
         }
     }
-    function showPrize() {
-        const msg = document.getElementById("prize");
+
+    function showPrize1() {
+        const msg = document.getElementById("prize1");
         msg.style.display = "block";
-        const msg2 = document.getElementById("noprize");
+        const msg2 = document.getElementById("noprize1");
         msg2.style.display = "none";
     }
 
-    function hidePrize() {
-        const msg = document.getElementById("prize");
+    function showPrize2() {
+        const msg = document.getElementById("prize2");
+        msg.style.display = "block";
+        const msg2 = document.getElementById("noprize2");
+        msg2.style.display = "none";
+    }
+
+    function showPrize3() {
+        const msg = document.getElementById("prize3");
+        msg.style.display = "block";
+        const msg2 = document.getElementById("noprize3");
+        msg2.style.display = "none";
+    }
+
+    function hidePrize1() {
+        const msg = document.getElementById("prize1");
         msg.style.display = "none";
-        const msg2 = document.getElementById("noprize");
+        const msg2 = document.getElementById("noprize1");
         msg2.style.display = "block";
     }
 
-    function redeemRubies () {
-        currentRubies -= 100;
+    function hidePrize2() {
+        const msg = document.getElementById("prize2");
+        msg.style.display = "none";
+        const msg2 = document.getElementById("noprize2");
+        msg2.style.display = "block";
+    }
+
+    function hidePrize3() {
+        const msg = document.getElementById("prize3");
+        msg.style.display = "none";
+        const msg2 = document.getElementById("noprize3");
+        msg2.style.display = "block";
+    }
+
+    function redeemRubies (amt) {
+        currentRubies -= amt;
         window.localStorage.setItem("rubies",currentRubies);
         alert(currentRubies);
+        window.location.reload();
     }
 
 </script>
