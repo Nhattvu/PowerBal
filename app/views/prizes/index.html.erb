@@ -12,7 +12,7 @@
 
 .rubyCount {
     text-align: center;
-    text-size: 200px;
+    size: 200px;
 }
 
 .rcimg {
@@ -21,7 +21,7 @@
 
 .help {
     text-align: center;
-    text-size: 5px;
+    size: 5px;
 }
 
 .price {
@@ -53,7 +53,7 @@
 </style>
 
 <br />
-<h1 class="rubyCount"><span id="count"></span> <img class="rcimg" src="http://localhost:3000/assets/ruby.png" alt="Red Ruby" width="40" height="40" style="vertical-align:middle"></h1>
+<h1 class="rubyCount"><span id="showCount" onLoad="window.location.reload();"></span> <img class="rcimg" src="http://localhost:3000/assets/ruby.png" alt="Red Ruby" width="40" height="40" style="vertical-align:middle"></h1>
 
 <button onClick="window.location.reload();">Refresh Page</button>
 
@@ -301,8 +301,8 @@
 </div>
 
 <script>
-    let currentRubies = parseInt(window.localStorage.getItem("rubies"));
-    document.getElementById("count").innerHTML = currentRubies;
+    currentRubies = parseInt(window.localStorage.getItem("rubies"));
+    document.getElementById("showCount").innerHTML = currentRubies;
     checkRubies();
 
     function checkRubies() {
