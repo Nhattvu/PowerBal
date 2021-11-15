@@ -53,7 +53,7 @@
 </style>
 
 <br />
-<h1 class="rubyCount"><span id="showCount" onLoad="window.location.reload();"></span> <img class="rcimg" src="http://localhost:3000/assets/ruby.png" alt="Red Ruby" width="40" height="40" style="vertical-align:middle"></h1>
+<h1 class="rubyCount"><span id="count" onLoad="window.location.reload();"></span> <img class="rcimg" src="http://localhost:3000/assets/ruby.png" alt="Red Ruby" width="40" height="40" style="vertical-align:middle"></h1>
 
 <p class="help">Click on the image to redeem your Rubies!<br />If the image is greyed out, you do not have enough Rubies.</p>
 
@@ -299,11 +299,7 @@
 
 <script>
     currentRubies = parseInt(window.localStorage.getItem("rubies"));
-<<<<<<< HEAD
-    document.getElementById("showCount").innerHTML = currentRubies;
-=======
     document.getElementById("count").innerHTML = currentRubies;
->>>>>>> 64f10ea3761dc6856f2c5567403932339448ccb9
     checkRubies();
 
     function checkRubies() {
