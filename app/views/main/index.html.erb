@@ -36,14 +36,20 @@ table.center {
     margin-right: auto;
 }
 
+.rubyCount {
+    text-align: center;
+    font-size: 35px;
+}
+
+.btn-primary:active {
+  transform: translateY(4px);
+}
+
 </style>
 
 <!-- Ruby display/header -->
-
-<div class ="center">
-    <h1>Rubies</h1>
-    <span id="currentRubies">-</span>
-</div>
+<br/>
+<h1 class="rubyCount"><span id="currentRubies">Hello</span> <img class="rcimg" src="http://localhost:3000/assets/ruby.png" alt="Red Ruby" width="40" height="40" style="vertical-align:middle"></h1>
 <div class="center lever">
         <button type="button" class="btn btn-primary" onclick="resetRubies()" id="resetRubies">Reset Rubies</button>
     </div>
