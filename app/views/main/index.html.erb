@@ -45,6 +45,10 @@ table.center {
     margin-top: -10px;
 }
 
+.bomb {
+    margin-left: 40px;
+}
+
 .btn-primary {
     width: 15%;
     margin-bottom: 15px;
@@ -194,6 +198,12 @@ table.center {
     <div class="center lever">
         <button type="button" class="btn btn-primary" onclick="spinDefuse()" id="defuseSpin">-</button>
     </div>
+    <div class="center bomb" id="defuseBomb">
+        <img src="http://localhost:3000/assets/bomb.png" alt="Bomb" width="250" height="200"></img>
+    </div>
+    <div class="center bomb" id="defuseBoom">
+        <img src="http://localhost:3000/assets/boom.png" alt="Boom" width="250" height="200"></img>
+    </div>
     <div id="defuseWinMessage" class="center message">
         You Won!
     </div>
@@ -201,5 +211,9 @@ table.center {
         <source src="http://localhost:3000/assets/casinowin.wav" type="audio/mpeg">
     </audio>
 </div>
-<script>loadGames()</script>
+<script>
+    loadGames()
+    const boompic = document.getElementById("defuseBoom");
+    boompic.style.display = "none";
+</script>
 

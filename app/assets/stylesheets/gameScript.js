@@ -159,6 +159,10 @@
         const spin = getElement('defuseSpin');
         const item1 = getElement('defuseItem1');
         const bet = getElement('defuseBet');
+        const bombpic = document.getElementById("defuseBomb");
+        const boompic = document.getElementById("defuseBoom");
+        boompic.style.display = "none";
+        bombpic.style.display = "block";
 
         var mult = 0;
         var bomb = false;
@@ -170,6 +174,8 @@
                 mult++;
                 if(rdNum <= 20){
                     bomb = true;
+                    bombpic.style.display = "none";
+                    boompic.style.display = "block";
                     spin.disabled = true;
                     item1.innerHTML = -mult.toString();
                     item1.style.color = 'red';
